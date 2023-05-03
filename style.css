@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --body-bg: #ffffff;
+
+  --heading-fc: #323238;
+
+  --controls-fc: #323238;
+
+  --sounds-bg: #e1e1e6;
+  --sounds-fc: #323238;
+  --sounds-active-bg: #02799d;
+  --sounds-active-fc: #ffffff;
+  --sounds-hover-bg: rgba(2, 121, 157, 0.31);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  color: var(--body-bg);
+
+  display: grid;
+  place-content: center;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12rem;
+}
+
+main {
+  display: grid;
+  place-content: center;
+}
+
+#timer {
+  font-weight: 500;
+  font-size: clamp(5rem, 5rem + 8vw, 7.875rem);
+  line-height: 9.25rem;
+  text-align: center;
+  color: var(--heading-fc);
+  margin-bottom: 1rem;
+}
+
+#controls {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+#controls button svg {
+  width: clamp(2rem, 2.5rem + 1vw, 3rem);
+  height: clamp(2rem, 2.5rem + 1vw, 3rem);
+}
+
+#controls button svg path {
+  fill: var(--controls-fc);
+}
+
+#sounds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+#sounds button {
+  padding: clamp(2rem, 2rem + 1vw, 3rem);
+  border-radius: 1.5rem;
+  background-color: var(--sounds-bg);
+
+  transition: background-color 0.5s;
+}
+
+#sounds button:hover {
+  background-color: var(--sounds-hover-bg);
+}
+
+#sounds button svg {
+  width: clamp(1.75rem, 1.75rem + 2vw, 2.75rem);
+  height: clamp(2.5rem, 2.5rem + 2vw, 3.5rem);
+}
+
+#sounds button svg path {
+  fill: var(--sounds-fc);
+}
+
+#sounds button.active-sound {
+  background-color: var(--sounds-active-bg);
+}
+
+#sounds button.active-sound svg path {
+  fill: var(--sounds-active-fc);
+}
+
+@media (max-width: 880px) {
+  #app {
+    gap: 3rem;
+  }
+
+  #sounds {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  #app {
+    grid-template-columns: 1fr;
+  }
+
+  #controls {
+    gap: 2rem;
+  }
+}
