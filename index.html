@@ -17,11 +17,12 @@
   </head>
   <body>
     <div id="app">
-      <!-- <button id="teste" style="border: 1px solid black">blablateste</button> teste para audio-->
-
       <main>
         <section id="timer-and-controls">
-          <h1 id="timer"><span>25</span><span>:</span><span>00</span></h1>
+          <h1 id="timer">
+            <span id="minutes">25</span><span>:</span
+            ><span id="seconds">00</span>
+          </h1>
 
           <div id="controls">
             <button class="btn-play">
@@ -98,7 +99,7 @@
               />
             </svg>
           </button>
-          <button class="btn-rain active-sound">
+          <button class="btn-rain">
             <svg
               width="53"
               height="56"
