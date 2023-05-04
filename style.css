@@ -33,13 +33,15 @@ button {
   cursor: pointer;
 }
 
-#app {
+/* #app {} */
+
+main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12rem;
 }
 
-main {
+#timer-and-controls {
   display: grid;
   place-content: center;
 }
@@ -104,7 +106,7 @@ main {
 }
 
 @media (max-width: 880px) {
-  #app {
+  main {
     gap: 3rem;
   }
 
@@ -114,7 +116,7 @@ main {
 }
 
 @media (max-width: 600px) {
-  #app {
+  main {
     grid-template-columns: 1fr;
   }
 
