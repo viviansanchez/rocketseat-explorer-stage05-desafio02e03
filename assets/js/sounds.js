@@ -1,8 +1,8 @@
 export function Sounds ({ btnForest, btnRain, btnCoffeeShop, btnFireplace }) {
-  const forestAudio = new Audio('../assets/audios/forest.wav')
-  const rainAudio = new Audio('../assets/audios/rain.wav')
-  const coffeeShopAudio = new Audio('../assets/audios/coffee-shop.wav')
-  const fireplaceAudio = new Audio('../assets/audios/fireplace.wav')
+  const forestAudio = new Audio('./assets/audios/forest.wav')
+  const rainAudio = new Audio('./assets/audios/rain.wav')
+  const coffeeShopAudio = new Audio('./assets/audios/coffee-shop.wav')
+  const fireplaceAudio = new Audio('./assets/audios/fireplace.wav')
 
   function playForestAudio() {
     stopAudioPlaying()
