@@ -1,5 +1,5 @@
-const minutes = document.querySelector('#minutes')
-const seconds = document.querySelector('#seconds')
+const minutesDisplay = document.querySelector('#minutes')
+const secondsDisplay = document.querySelector('#seconds')
 
 const btnPlay = document.querySelector('.btn-play')
 const btnStop = document.querySelector('.btn-stop')
@@ -23,7 +23,7 @@ btnCoffeeShop.addEventListener('click', playCoffeeShopAudio)
 btnFireplace.addEventListener('click', playFireplaceAudio)
 
 function playForestAudio() {
-  checkAndStopAudioPlaying()
+  stopAudioPlaying()
   forestAudio.play()
   forestAudio.loop = true
 
@@ -34,7 +34,7 @@ function playForestAudio() {
 }
 
 function playRainAudio() {
-  checkAndStopAudioPlaying()
+  stopAudioPlaying()
   rainAudio.play()
   rainAudio.loop = true
 
@@ -45,7 +45,7 @@ function playRainAudio() {
 }
 
 function playCoffeeShopAudio() {
-  checkAndStopAudioPlaying()
+  stopAudioPlaying()
   coffeeShopAudio.play()
   coffeeShopAudio.loop = true
 
@@ -56,7 +56,7 @@ function playCoffeeShopAudio() {
 }
 
 function playFireplaceAudio() {
-  checkAndStopAudioPlaying()
+  stopAudioPlaying()
   fireplaceAudio.play()
   fireplaceAudio.loop = true
 
@@ -66,12 +66,83 @@ function playFireplaceAudio() {
   btnCoffeeShop.classList.remove('active-sound')
 }
 
-function checkAndStopAudioPlaying() {
+function stopAudioPlaying() {
   let audios = [forestAudio, rainAudio, coffeeShopAudio, fireplaceAudio]
 
   for (const audio of audios) {
     if (audio.play) {
       audio.pause()
+      btnForest.classList.remove('active-sound')
+      btnRain.classList.remove('active-sound')
+      btnCoffeeShop.classList.remove('active-sound')
+      btnFireplace.classList.remove('active-sound')
     }
   }
+}
+
+// timer and controls
+btnPlay.addEventListener('click', countdown)
+btnStop.addEventListener('click', resetCountdownAndSound)
+btnAddTime.addEventListener('click', addMinutes)
+btnRemoveTime.addEventListener('click', removeMinutes)
+
+let minutes = Number(minutesDisplay.textContent)
+let seconds = Number(secondsDisplay.textContent)
+
+let timerTimeout
+
+function countdown() {
+  console.log('starCountdwon')
+  
+  timerTimeout = setTimeout(() => {
+    let newSeconds = Number(secondsDisplay.textContent)
+    let newMinutes = Number(minutesDisplay.textContent)
+
+    if(newSeconds <=0 && newMinutes <=0) {
+      resetCountdownAndSound()
+      return
+    }
+    
+    if(newSeconds <= 0) {
+      newSeconds = 12
+      newMinutes--
+    }
+    
+    newSeconds -= 1
+    updateDisplay(newMinutes, newSeconds)
+    
+    countdown()
+  }, 1000);
+
+}
+
+function resetCountdownAndSound() {
+  console.log('resetCountdown');
+  clearTimeout(timerTimeout)
+  updateDisplay(minutes, seconds)
+  stopAudioPlaying()
+}
+
+function addMinutes() {
+  console.log('addMinutes');
+  let currentSeconds = secondsDisplay.textContent
+  let currentMinutes = Number(minutesDisplay.textContent)
+  let newMinutes = currentMinutes + 5
+  updateDisplay(newMinutes, currentSeconds)
+}
+
+function removeMinutes() {
+  console.log('removeMinutes');
+  let currentSeconds = secondsDisplay.textContent
+  let currentMinutes = Number(minutesDisplay.textContent)
+  let newMinutes = currentMinutes - 5
+  if(currentMinutes > 5) {
+    newMinutes = currentMinutes - 5
+    updateDisplay(newMinutes, currentSeconds)
+  }
+}
+
+function updateDisplay(minutes, seconds) {
+  minutesDisplay.textContent = String(minutes).padStart(2, '0')
+  secondsDisplay.textContent = String(seconds).padStart(2, '0')
 }
