@@ -6,7 +6,11 @@ import {
   btnForest,
   btnRain,
   btnCoffeeShop,
-  btnFireplace
+  btnFireplace, 
+  html,
+  btnSun,
+  btnMoon,
+  toggleContainer
 } from './elements.js'
 
 export function Events (sounds, timerAndControls) {
@@ -19,5 +23,14 @@ export function Events (sounds, timerAndControls) {
   btnStop.addEventListener('click', timerAndControls.resetCountdownAndSound)
   btnAddTime.addEventListener('click', timerAndControls.addMinutes)
   btnRemoveTime.addEventListener('click', timerAndControls.removeMinutes)
+
+  toggleContainer.addEventListener('click', toggleMode)
+  
+  function toggleMode() {
+    html.classList.toggle('dark-mode')
+    btnSun.classList.toggle('hide')
+    btnMoon.classList.toggle('hide')
+  }
+
 }
 

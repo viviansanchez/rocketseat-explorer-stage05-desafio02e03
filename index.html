@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,10 +17,25 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
     <div id="app">
+      <div class="toggle-mode-container">
+        <button id="sun" class="toggle-dark-mode">
+          <img
+            src="./assets/imgs/sun.svg"
+            alt="Imagem de um sol, representa o modo claro da aplicação"
+          />
+        </button>
+        <button id="moon" class="toggle-dark-mode hide">
+          <img
+            src="./assets/imgs/moon.svg"
+            alt="Imagem de uma lua, representa o modo escuro da aplicação"
+          />
+        </button>
+      </div>
+
       <main>
         <section id="timer-and-controls">
           <h1 id="timer">

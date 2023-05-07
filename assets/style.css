@@ -13,15 +13,37 @@
 
   --sounds-bg: #e1e1e6;
   --sounds-fc: #323238;
+  --sounds-volume-input: #323238;
   --sounds-active-bg: #02799d;
   --sounds-active-fc: #ffffff;
+  --sounds-active-volume: #ffffff;
   --sounds-hover-bg: rgba(2, 121, 157, 0.31);
+}
+
+.dark-mode {
+  --body-bg: #121214;
+
+  --heading-fc: #ffffff;
+
+  --controls-fc: #c4c4cc;
+
+  --sounds-bg: #2e292c;
+  --sounds-fc: #c4c4cc;
+  --sounds-volume-input: #ffffff;
+  --sounds-active-bg: #0a3442;
+  --sounds-active-fc: #ffffff;
+  --sounds-active-volume: #ffffff;
+  --sounds-hover-bg: #0a3442;
+}
+
+.hide {
+  display: none;
 }
 
 body {
   font-family: "Roboto", sans-serif;
   height: 100vh;
-  color: var(--body-bg);
+  background-color: var(--body-bg);
 
   display: grid;
   place-content: center;
@@ -31,6 +53,17 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.toggle-mode-container {
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+}
+
+.toggle-dark-mode img {
+  width: 2.25rem;
+  height: 2.25rem;
 }
 
 /* #app {} */
@@ -106,6 +139,11 @@ main {
 }
 
 @media (max-width: 880px) {
+  .toggle-mode-container {
+    top: 1rem;
+    right: 1rem;
+  }
+
   main {
     gap: 3rem;
   }

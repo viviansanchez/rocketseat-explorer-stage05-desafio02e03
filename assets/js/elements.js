@@ -11,6 +11,11 @@ const btnRain = document.querySelector('.btn-rain')
 const btnCoffeeShop = document.querySelector('.btn-coffee-shop')
 const btnFireplace = document.querySelector('.btn-fireplace')
 
+const html = document.documentElement
+const btnSun = document.querySelector('#sun')
+const btnMoon = document.querySelector('#moon')
+const toggleContainer = document.querySelector('.toggle-mode-container')
+
 export {
   minutesDisplay,
   secondsDisplay,
@@ -21,5 +26,9 @@ export {
   btnForest,
   btnRain,
   btnCoffeeShop,
-  btnFireplace
+  btnFireplace,
+  html,
+  btnSun,
+  btnMoon,
+  toggleContainer
 }
