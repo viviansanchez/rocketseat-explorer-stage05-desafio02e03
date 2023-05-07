@@ -3,6 +3,7 @@ export function Sounds ({ btnForest, btnRain, btnCoffeeShop, btnFireplace }) {
   const rainAudio = new Audio('./assets/audios/rain.wav')
   const coffeeShopAudio = new Audio('./assets/audios/coffee-shop.wav')
   const fireplaceAudio = new Audio('./assets/audios/fireplace.wav')
+  const kitchenTimer = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true")
 
   function playForestAudio() {
     stopAudioPlaying()
@@ -62,11 +63,16 @@ export function Sounds ({ btnForest, btnRain, btnCoffeeShop, btnFireplace }) {
     }
   }
 
+  function timeEnd() {
+    kitchenTimer.play()
+  }
+
   return {
     playForestAudio,
     playRainAudio,
     playCoffeeShopAudio,
     playFireplaceAudio,
-    stopAudioPlaying
+    stopAudioPlaying,
+    timeEnd
   }
 }

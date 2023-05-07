@@ -1,4 +1,4 @@
-export function TimerAndControls ({ minutesDisplay, secondsDisplay, stopAudioPlaying }) {
+export function TimerAndControls ({ minutesDisplay, secondsDisplay, stopAudioPlaying, timeEnd }) {
   let minutes = Number(minutesDisplay.textContent)
   let seconds = Number(secondsDisplay.textContent)
 
@@ -11,6 +11,7 @@ export function TimerAndControls ({ minutesDisplay, secondsDisplay, stopAudioPla
   
       if(newSeconds <=0 && newMinutes <=0) {
         resetCountdownAndSound()
+        timeEnd()
         return
       }
       
