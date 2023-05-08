@@ -9,7 +9,7 @@ export function Sounds ({ btnForest, btnRain, btnCoffeeShop, btnFireplace }) {
     stopAudioPlaying()
     forestAudio.play()
     forestAudio.loop = true
-  
+
     btnForest.classList.add('active-sound')
     btnRain.classList.remove('active-sound')
     btnCoffeeShop.classList.remove('active-sound')
@@ -31,7 +31,7 @@ export function Sounds ({ btnForest, btnRain, btnCoffeeShop, btnFireplace }) {
     stopAudioPlaying()
     coffeeShopAudio.play()
     coffeeShopAudio.loop = true
-  
+
     btnCoffeeShop.classList.add('active-sound')
     btnRain.classList.remove('active-sound')
     btnForest.classList.remove('active-sound')
@@ -42,7 +42,7 @@ export function Sounds ({ btnForest, btnRain, btnCoffeeShop, btnFireplace }) {
     stopAudioPlaying()
     fireplaceAudio.play()
     fireplaceAudio.loop = true
-  
+
     btnFireplace.classList.add('active-sound')
     btnRain.classList.remove('active-sound')
     btnForest.classList.remove('active-sound')
@@ -68,6 +68,10 @@ export function Sounds ({ btnForest, btnRain, btnCoffeeShop, btnFireplace }) {
   }
 
   return {
+    forestAudio,
+    rainAudio,
+    coffeeShopAudio,
+    fireplaceAudio,
     playForestAudio,
     playRainAudio,
     playCoffeeShopAudio,
